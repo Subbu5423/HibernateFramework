@@ -1,0 +1,34 @@
+package Hiber;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+public class FetchAll {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("YourPersistenceUnitName");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		// Create a TypedQuery with JPQL
+		String jpql = "SELECT e FROM YourEntity e"; // YourEntity is your entity class name
+	TypedQuery<TableDetails> =entityManager.createQuery(jpql, TableDetails.class);
+
+		// Execute the query and get the list of results
+		List<YourEntity> entities = query.getResultList();
+
+		// Process the results
+		for (YourEntity entity : entities) {
+		    // Process each entity as needed
+		    System.out.println(entity);
+		}
+
+		// Close the EntityManager when done
+		entityManager.close();
+		entityManagerFactory.close();
+
+	}
+
+}
